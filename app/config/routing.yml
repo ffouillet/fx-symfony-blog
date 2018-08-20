@@ -1,3 +1,11 @@
+fx_user:
+    resource: "@FxUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fx_blog:
+    resource: "@FxBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

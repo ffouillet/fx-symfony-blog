@@ -1,0 +1,3 @@
+fx_blog_homepage:
+    path:     /blog
+    defaults: { _controller: FxBlogBundle:Default:index }

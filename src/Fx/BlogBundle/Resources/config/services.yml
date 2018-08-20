@@ -1,0 +1,4 @@
+services:
+#    fx_blog.example:
+#        class: Fx\BlogBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
