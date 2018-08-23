@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Fx\BlogBundle\FxBlogBundle(),
             new Fx\UserBundle\FxUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Fx\PortfolioBundle\FxPortfolioBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
