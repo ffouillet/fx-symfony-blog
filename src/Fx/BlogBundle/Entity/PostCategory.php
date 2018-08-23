@@ -63,4 +63,3 @@ class PostCategory
         return $this->name;
     }
 }
-
