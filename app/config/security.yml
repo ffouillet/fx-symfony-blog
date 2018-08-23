@@ -2,7 +2,7 @@
 # https://symfony.com/doc/current/security.html
 security:
     encoders:
-        FxUserBundle\Entity\User:
+        Fx\UserBundle\Entity\User:
             algorithm: bcrypt
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
@@ -25,10 +25,10 @@ security:
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
+            http_basic: ~
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
     
     access-control:
-        #- { path: ^/blog, roles: ROLE_ADMIN }
+        - { path: ^/fxadmin, roles: ROLE_USER }
