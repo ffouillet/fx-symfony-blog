@@ -1,0 +1,30 @@
+easy_admin:
+    site_name: 'Ffouillet.fr Administration'
+    entities:
+        # BLOG
+        Post:
+            class: Fx\BlogBundle\Entity\Post
+            form : 
+                fields: 
+                    - 'title'
+                    - 'user'
+                    - 'postCategory'
+                    - 'heading'
+                    - 'content'
+                    - 'createdAt'
+        PostCategory:
+            class: Fx\BlogBundle\Entity\PostCategory
+        Comment:
+            class: Fx\BlogBundle\Entity\Comment
+        # PORTFOLIO
+        Project:
+            class: Fx\PortfolioBundle\Entity\Project
+            form:
+                fields:
+                    - 'name'
+                    - 'realizedAt'
+                    - { property: realizedAtDisplayString, type: 'text', label: 'Date réalisation (string) qui sera affichée sur front' }
+                    - 'description'
+                    - 'frontendSortOrder'
+        Skill:
+            class: Fx\PortfolioBundle\Entity\Skill

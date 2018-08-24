@@ -58,7 +58,8 @@ class Post
 
     /**
      * @var \DateTime
-     *
+     * 
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(name="updatedAt", type="datetime", nullable=true)
      */
     private $updatedAt;
@@ -75,6 +76,10 @@ class Post
      * @ORM\JoinColumn(nullable=true)
      */
     private $postCategory;
+
+    public function __construct() {
+        $this->createdAt = new \DateTime();
+    }
 
     /**
      * Get id
@@ -183,20 +188,6 @@ class Post
     }
 
     /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Post
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
      * Get updatedAt
      *
      * @return \DateTime
@@ -276,5 +267,10 @@ class Post
     public function getPostCategory()
     {
         return $this->postCategory;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 }

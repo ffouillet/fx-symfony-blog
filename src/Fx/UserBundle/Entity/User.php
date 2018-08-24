@@ -43,6 +43,16 @@ class User implements UserInterface, \Serializable
         $this->isActive = true;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
     public function getUsername()
     {
         return $this->username;
@@ -58,6 +68,11 @@ class User implements UserInterface, \Serializable
         return $this->password;
     }
 
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
     public function getRoles()
     {
         return array('ROLE_USER');
@@ -65,6 +80,11 @@ class User implements UserInterface, \Serializable
 
     public function eraseCredentials()
     {
+        
+    }
+
+    public function __toString() {
+        return $this->username;
     }
 
     /** @see \Serializable::serialize() */
