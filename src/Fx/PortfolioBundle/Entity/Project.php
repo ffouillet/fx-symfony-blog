@@ -30,6 +30,13 @@ class Project
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255)
+     */
+    private $url;
+
+    /**
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(name="slug", type="string", length=255, unique=true)
      */
@@ -278,5 +285,29 @@ class Project
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Project
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }

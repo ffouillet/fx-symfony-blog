@@ -19,8 +19,9 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Fx\BlogBundle\FxBlogBundle(),
             new Fx\UserBundle\FxUserBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Fx\PortfolioBundle\FxPortfolioBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
