@@ -2,6 +2,7 @@
 
 namespace Fx\PortfolioBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -32,7 +33,7 @@ class Project
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", length=255)
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
     private $url;
 
@@ -84,6 +85,18 @@ class Project
      */
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Fx\CoreBundle\Entity\ProjectImage", mappedBy="project", cascade={"persist"}, orphanRemoval = true)
+     */
+    private $images;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -310,4 +323,44 @@ class Project
     {
         return $this->url;
     }
+
+
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Add image
+     *
+     * @param \Fx\CoreBundle\Entity\ProjectImage $image
+     *
+     * @return Project
+     */
+    public function addImage(\Fx\CoreBundle\Entity\ProjectImage $image)
+    {
+        $this->images[] = $image;
+
+        $image->setProject($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \Fx\CoreBundle\Entity\ProjectImage $image
+     */
+    public function removeImage(\Fx\CoreBundle\Entity\ProjectImage $image)
+    {
+        $this->images->removeElement($image);
+    }
+
+
 }

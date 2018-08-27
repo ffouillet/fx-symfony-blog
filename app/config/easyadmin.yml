@@ -22,9 +22,14 @@ easy_admin:
             form:
                 fields:
                     - 'name'
+                    - 'user'
+                    - { property: 'url', type: 'url' }
+                    - { property: 'images', type: 'collection', type_options: { entry_type: 'Fx\CoreBundle\Form\ProjectImageType', by_reference: false, allow_delete: true}, label: 'Screenshots du projet', embedded: true }
                     - 'realizedAt'
-                    - { property: realizedAtDisplayString, type: 'text', label: 'Date réalisation (string) qui sera affichée sur front' }
+                    - { property: 'realizedAtDisplayString', type: 'text', label: 'Date réalisation (string) qui sera affichée sur front' }
                     - 'description'
+                    - 'tags'
                     - 'frontendSortOrder'
+                    
         Skill:
             class: Fx\PortfolioBundle\Entity\Skill

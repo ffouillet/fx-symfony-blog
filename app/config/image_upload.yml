@@ -1,0 +1,20 @@
+# Images upload
+parameters:
+    app.path.projects_images: /uploads/images/realisations
+    app.path.skills_images: /uploads/images/competences
+    app.path.posts_images: /uploads/images/articles
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        projects_images:
+            uri_prefix:         '%app.path.projects_images%'
+            upload_destination: '%kernel.root_dir%/../web%app.path.projects_images%'
+
+        skills_images:
+            uri_prefix:         '%app.path.skills_images%'
+            upload_destination: '%kernel.root_dir%/../web%app.path.skills_images%' 
+
+        projects_images:
+            uri_prefix:         '%app.path.posts_images%'
+            upload_destination: '%kernel.root_dir%/../web%app.path.posts_images%' 

@@ -22,6 +22,8 @@ class AppKernel extends Kernel
             new Fx\PortfolioBundle\FxPortfolioBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new Fx\CoreBundle\FxCoreBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
