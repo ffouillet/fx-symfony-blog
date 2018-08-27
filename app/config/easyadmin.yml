@@ -24,7 +24,7 @@ easy_admin:
                     - 'name'
                     - 'user'
                     - { property: 'url', type: 'url' }
-                    - { property: 'images', type: 'collection', type_options: { entry_type: 'Fx\CoreBundle\Form\ProjectImageType', by_reference: false, allow_delete: true}, label: 'Screenshots du projet', embedded: true }
+                    - { property: 'images', type: 'collection', type_options: { entry_type: 'Fx\CoreBundle\Form\ProjectImageType', by_reference: false, allow_delete: false}, label: 'Screenshots du projet', embedded: true }
                     - 'realizedAt'
                     - { property: 'realizedAtDisplayString', type: 'text', label: 'Date réalisation (string) qui sera affichée sur front' }
                     - 'description'
@@ -33,3 +33,9 @@ easy_admin:
                     
         Skill:
             class: Fx\PortfolioBundle\Entity\Skill
+            form:
+                fields:
+                    - 'name'
+                    - 'user'
+                    - 'level'
+                    - { property: 'imageFile', type: 'vich_image', type_options :  { allow_delete: false } }
