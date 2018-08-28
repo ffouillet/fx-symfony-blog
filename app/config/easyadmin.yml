@@ -10,7 +10,7 @@ easy_admin:
                     - 'user'
                     - 'postCategory'
                     - 'heading'
-                    - 'content'
+                    - { property: 'content', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
                     - 'createdAt'
         PostCategory:
             class: Fx\BlogBundle\Entity\PostCategory
