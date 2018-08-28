@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Vich\UploaderBundle\VichUploaderBundle(),
             new FOS\CKEditorBundle\FOSCKEditorBundle(),
             new FM\ElfinderBundle\FMElfinderBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

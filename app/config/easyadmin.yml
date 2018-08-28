@@ -46,3 +46,18 @@ easy_admin:
                     - { property: 'image', type: 'image', base_path: '%app.path.skills_images%' }
                     - 'level'
                     - 'frontendSortOrder'
+        Tool:
+            class: Fx\PortfolioBundle\Entity\Tool
+            form:
+                fields:
+                - 'name'
+                - 'user'
+                - 'level'
+                - 'frontendSortOrder'
+                - { property: 'imageFile', type: 'vich_image', type_options:  { allow_delete: false } }
+            list:
+                fields:
+                - 'name'
+                - { property: 'image', type: 'image', base_path: '%app.path.skills_images%' }
+                - 'level'
+                - 'frontendSortOrder'
