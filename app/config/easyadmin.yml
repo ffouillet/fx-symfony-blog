@@ -40,3 +40,9 @@ easy_admin:
                     - 'level'
                     - 'frontendSortOrder'
                     - { property: 'imageFile', type: 'vich_image', type_options :  { allow_delete: false } }
+            list:
+                fields:
+                    - 'name'
+                    - { property: 'image', type: 'image', base_path: '%app.path.skills_images%' }
+                    - 'level'
+                    - 'frontendSortOrder'
