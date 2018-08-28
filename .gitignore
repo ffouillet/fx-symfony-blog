@@ -50,3 +50,4 @@
 
 # PhpStorm
 /.idea/*
+.idea/*
