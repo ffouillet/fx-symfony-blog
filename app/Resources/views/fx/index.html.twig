@@ -1,0 +1,16 @@
+{# templates/blog/layout.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Blog Application</h1>
+
+        {% for project in projects %}
+            {{ project.name }}
+
+            {%  for image in project.images %}
+                <img src="{{ vich_uploader_asset(image, 'imageFile') }}">
+            {% endfor %}
+
+        {%  endfor %}
+    {% block content %}{% endblock %}
+{% endblock %}

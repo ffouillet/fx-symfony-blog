@@ -10,7 +10,7 @@ easy_admin:
                     - 'user'
                     - 'postCategory'
                     - 'heading'
-                    - 'content'
+                    - { property: 'content', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
                     - 'createdAt'
         PostCategory:
             class: Fx\BlogBundle\Entity\PostCategory
@@ -22,9 +22,42 @@ easy_admin:
             form:
                 fields:
                     - 'name'
+                    - 'user'
+                    - { property: 'url', type: 'url' }
+                    - { property: 'images', type: 'collection', type_options: { entry_type: 'Fx\CoreBundle\Form\ProjectImageType', by_reference: false, allow_delete: false}, label: 'Screenshots du projet', embedded: true }
                     - 'realizedAt'
-                    - { property: realizedAtDisplayString, type: 'text', label: 'Date réalisation (string) qui sera affichée sur front' }
+                    - { property: 'realizedAtDisplayString', type: 'text', label: 'Date réalisation (string) qui sera affichée sur front' }
                     - 'description'
+                    - 'tags'
                     - 'frontendSortOrder'
+                    
         Skill:
             class: Fx\PortfolioBundle\Entity\Skill
+            form:
+                fields:
+                    - 'name'
+                    - 'user'
+                    - 'level'
+                    - 'frontendSortOrder'
+                    - { property: 'imageFile', type: 'vich_image', type_options :  { allow_delete: false } }
+            list:
+                fields:
+                    - 'name'
+                    - { property: 'image', type: 'image', base_path: '%app.path.skills_images%' }
+                    - 'level'
+                    - 'frontendSortOrder'
+        Tool:
+            class: Fx\PortfolioBundle\Entity\Tool
+            form:
+                fields:
+                - 'name'
+                - 'user'
+                - 'level'
+                - 'frontendSortOrder'
+                - { property: 'imageFile', type: 'vich_image', type_options:  { allow_delete: false } }
+            list:
+                fields:
+                - 'name'
+                - { property: 'image', type: 'image', base_path: '%app.path.skills_images%' }
+                - 'level'
+                - 'frontendSortOrder'

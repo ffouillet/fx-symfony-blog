@@ -1,3 +1,10 @@
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.yaml"
+
+fx_core:
+    resource: "@FxCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/AdminController.php"
     type:     annotation
@@ -14,6 +21,9 @@ fx_user:
 fx_blog:
     resource: "@FxBlogBundle/Resources/config/routing.yml"
     prefix:   /
+
+elfinder:
+    resource: "@FMElfinderBundle/Resources/config/routing.yml"
 
 app:
     resource: '@AppBundle/Controller/'

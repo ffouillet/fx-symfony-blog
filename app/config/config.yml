@@ -3,6 +3,10 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: easyadmin.yml }
+    - { resource: image_upload.yml } # VichUploaderBundle config
+    - { resource: fos_ck_editor.yml }
+    - { resource: fm_elfinder.yml }
+    - { resource: liip_imagine.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -76,3 +80,5 @@ stof_doctrine_extensions:
         default:
             sluggable: true
             timestampable: true
+
+
