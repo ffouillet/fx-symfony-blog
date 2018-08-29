@@ -1,13 +1,80 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <title>{% block title %}Félix Fouillet - Développeur Web Symfony - Wordpress{% endblock %}</title>
+        <meta name="description" content="Je m'apelle Félix Fouillet, je suis Développeur Web Symfony - Wordpress en Savoie, à Chambéry et aux alentours."/>
+        <meta name="keywords" content=""/>
+        <meta name="author" content="Félix Fouillet"/>
+        <!-- Normalize CSS-->
+        <link rel="stylesheet" href="{{ asset('template/css/normalize.css') }}"/>
+
+        <!-- Magnific Popup-->
+        <link rel="stylesheet" href="{{ asset('template/plugins/magnific-popup/magnific-popup.css') }}"/>
+
+        <!-- mCustomScrollbar-->
+        <link rel="stylesheet" href="{{ asset('template/plugins/mCustomScrollbar/jquery.mCustomScrollbar.min.css') }}"/>
+
+        <!-- Owl Carousel-->
+        <link rel="stylesheet" href="{{ asset('template/plugins/owl-carousel/owl.carousel.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('template/plugins/owl-carousel/owl.transitions.css') }}"/>
+
+        <!-- Font Awesome-->
+        <link rel="stylesheet" href="{{ asset('template/css/font-awesome.min.css') }}"/>
+
+        <!-- Google Fonts-->
+        <link href="http://fonts.googleapis.com/css?family=Comfortaa:400,700%7CNoto+Sans:400,400italic,700,700italic&amp;amp;subset=latin,cyrillic" rel="stylesheet"/>
+
+        <!-- Leaflet CSS-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+
+        <!-- Main Styles-->
+        <link rel="stylesheet" href="{{ asset('template/css/main.css') }}"/>
+
+        <!-- Require by template -->
+        <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         {% block body %}{% endblock %}
+
+        <!-- jQuery 1.11.3 -->
+        <script src="{{ asset('template/js/jquery-1.11.3.min.js') }}"></script>
+
+        <!-- Magnific Popup-->
+        <script src="{{ asset('template/plugins/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+
+        <!-- mCustomScrollbar-->
+        <script src="{{ asset('template/plugins/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+
+        <!-- One Page Nav-->
+        <script src="{{ asset('template/plugins/ope-page-nav/jquery-ui-1.9.2.custom.min.js') }}"></script>
+        <script src="{{ asset('template/plugins/ope-page-nav/jquery.nav.js') }}"></script>
+
+        <!-- Owl Carousel-->
+        <script src="{{ asset('template/plugins/owl-carousel/owl.carousel.min.js') }}"></script>
+
+        <!-- Leaflet JS-->
+        <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+
+        <!-- Shuffle-->
+        <script src="{{ asset('template/plugins/shuffle/jquery.shuffle.modernizr.min.js') }}"></script>
+
+        <!-- Twitter Fetcher-->
+        <script src="{{ asset('template/plugins/twitterFetcher/twitterFetcher_min.js') }}"></script>
+
+        <!-- Validate-->
+        <script src="{{ asset('template/plugins/validate/jquery.validate.min.js') }}"></script>
+
+        <!-- Main Scripts-->
+        <script src="{{ asset('template/js/scripts.js') }}"></script>
+
+        <!-- Customizer-->
+        <script src="{{ asset('template/plugins/customizer/customizer.js') }}"></script>
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
