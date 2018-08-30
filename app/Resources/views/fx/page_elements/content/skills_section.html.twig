@@ -1,0 +1,41 @@
+<section id="services" class="site-section services-section">
+    <div class="container">
+        <header class="heading">
+            <h2>Compétences</h2>
+        </header>
+        <div class="row">
+            <div class="col span_3">
+                <div class="fx-skills">
+                    {%  for skill in skills %}
+                        <div class="fx-skill">
+                            <div class="fx-skill-name">{{ skill.name }}</div>
+                            <div class="fx-skill-logo"><img src="{{ vich_uploader_asset(skill, 'imageFile') }}"/></div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- <div class="separator l"></div> -->
+            </div>
+            <div class="col span_3">
+                <ul class="tools fx-tools">
+                    {% for tool in tools %}
+                        <li><img src="{{ vich_uploader_asset(tool, 'imageFile') }}"/>{{ tool.name }}</li>
+                    {% endfor %}
+                   <!-- <li>Photoshop</li>
+                    <li>Sketch</li>
+                    <li>Atom</li>
+                    <li>Gulp</li>
+                    <li>Bower</li>
+                    <li>Yeoman</li>
+                    <li>Sass</li>
+                    <li>jQuery</li>
+                    <li>Bootstrap</li>
+                    <li>Wordpress</li>
+                    <li>Git</li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+</section>

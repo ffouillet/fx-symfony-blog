@@ -34,7 +34,7 @@ class Tool
     /**
      * @var int
      *
-     * @ORM\Column(name="level", type="integer")
+     * @ORM\Column(name="level", type="integer", nullable=true)
      */
     private $level;
 
@@ -53,7 +53,7 @@ class Tool
     private $user;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      */
     private $image;

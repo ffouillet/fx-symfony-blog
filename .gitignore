@@ -29,6 +29,7 @@
 /vendor/
 
 # Assets and user uploads
+/web/assets/
 /web/bundles/
 /web/uploads/
 
