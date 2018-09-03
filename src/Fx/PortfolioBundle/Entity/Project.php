@@ -86,6 +86,11 @@ class Project
     private $user;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Fx\PortfolioBundle\Entity\ProjectCategory", cascade={"persist"})
+     */
+    private $projectCategories;
+
+    /**
      * @ORM\OneToMany(targetEntity="Fx\CoreBundle\Entity\ProjectImage", mappedBy="project", cascade={"persist"}, orphanRemoval = true)
      */
     private $images;
@@ -362,5 +367,64 @@ class Project
         $this->images->removeElement($image);
     }
 
+    /**
+     * Return images' main thumb for front.
+     */
+    public function getMainThumb()
+    {
+        $images = $this->getImages();
 
+        // Only one image
+        if (sizeof($images) == 1) {
+            return $images[0];
+        }
+
+        $imagesHasMainThumb = false;
+
+        foreach($images as $image) {
+            if ($image->getIsMainThumb()) {
+                return $image;
+            }
+        }
+
+        if (!$imagesHasMainThumb) {
+            return $images[0]; // Multiple image but none have the isMainThumb attribute to true.
+        }
+    }
+
+
+
+    /**
+     * Add projectCategory
+     *
+     * @param \Fx\PortfolioBundle\Entity\ProjectCategory $projectCategory
+     *
+     * @return Project
+     */
+    public function addProjectCategory(\Fx\PortfolioBundle\Entity\ProjectCategory $projectCategory)
+    {
+        $this->projectCategories[] = $projectCategory;
+
+        return $this;
+    }
+
+    /**
+     * Remove projectCategory
+     *
+     * @param \Fx\PortfolioBundle\Entity\ProjectCategory $projectCategory
+     */
+    public function removeProjectCategory(\Fx\PortfolioBundle\Entity\ProjectCategory $projectCategory)
+    {
+        $this->projectCategories->removeElement($projectCategory);
+    }
+
+    /**
+     * Get projectCategories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjectCategories()
+    {
+        return $this->projectCategories;
+    }
 }

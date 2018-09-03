@@ -10,6 +10,26 @@
             <li data-group="illustration">Illustration</li>
         </ul>
         <ul class="works">
+
+            {% for project in projects %}
+                <li data-groups="[&quot;web&quot;]" class="works-item"><a href="#works-item-details-{{ loop.index }}" class="works-item-link"><img src="{{ vich_uploader_asset(project.getMainThumb, 'imageFile') }}" width="280" height="280" alt=""/></a>
+                    <div id="works-item-details-{{ loop.index }}" class="popup mfp-hide">
+                        <div class="slideshow">
+                            {% for image in project.images %}
+                                <figure><img src="{{ vich_uploader_asset(image, 'imageFile') }}" width="750" height="500" alt=""/></figure>
+                            {% endfor %}
+                        </div>
+                        <h3>{{ project.name }}</h3>
+                        <div class="date">{{ project.realizedAtDisplayString }}</div>
+                        <p>{{ project.description }}</p>
+
+                        {% if project.url is not null %}
+                            <div class="center"><a href="{{ project.url }}" class="btn btn-bordered">Voir le projet</a></div>
+                        {%  endif %}
+
+                    </div>
+                </li>
+            {% endfor %}
             <li data-groups="[&quot;web&quot;]" class="works-item"><a href="#works-item-details-1" class="works-item-link"><img src="{{  asset('assets/template/images/work-thumb-1.jpg') }}" width="280" height="280" alt=""/></a>
                 <div id="works-item-details-1" class="popup mfp-hide">
                     <div class="slideshow">
