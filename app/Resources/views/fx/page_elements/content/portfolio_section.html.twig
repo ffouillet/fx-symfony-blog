@@ -4,10 +4,10 @@
             <h2>Portfolio</h2>
         </header>
         <ul class="filter">
-            <li data-group="all" class="active">All</li>
-            <li data-group="branding">Branding</li>
-            <li data-group="web">Web</li>
-            <li data-group="illustration">Illustration</li>
+            <li data-group="all" class="active">Tous</li>
+            {%  for projectCategory in projectsCategories %}
+                <li data-group="{{ projectCategory.name }}">{{ projectCategory.name }}</li>
+            {% endfor %}
         </ul>
         <ul class="works">
 

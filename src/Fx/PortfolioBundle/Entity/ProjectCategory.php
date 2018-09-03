@@ -29,6 +29,13 @@ class ProjectCategory
     private $name;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="frontendSortOrder", type="integer", nullable=true, unique=true)
+     */
+    private $frontendSortOrder;
+
+    /**
      * Get id
      *
      * @return int
@@ -61,5 +68,38 @@ class ProjectCategory
     {
         return $this->name;
     }
-}
 
+    /**
+     * Set frontendSortOrder
+     *
+     * @param integer $frontendSortOrder
+     *
+     * @return ProjectCategory
+     */
+    public function setFrontendSortOrder($frontendSortOrder)
+    {
+        $this->frontendSortOrder = $frontendSortOrder;
+
+        return $this;
+    }
+
+    /**
+     * Get frontendSortOrder
+     *
+     * @return integer
+     */
+    public function getFrontendSortOrder()
+    {
+        return $this->frontendSortOrder;
+    }
+
+    /**
+     * Return the name of the projetCategory
+     *
+     * @return string
+     */
+    public function __toString(){
+        return $this->name;
+    }
+
+}
