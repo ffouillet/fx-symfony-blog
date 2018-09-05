@@ -2,3 +2,10 @@ services:
 #    fx_core.example:
 #        class: Fx\CoreBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+    fx.strings_tools:
+        class: Fx\CoreBundle\Service\FxStringsTools
+        arguments: ~
+
+    fx.project_image_directory_namer:
+        class: Fx\CoreBundle\Service\ProjectImageDirectoryNamer
+        arguments: ~

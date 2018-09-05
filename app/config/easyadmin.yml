@@ -25,7 +25,7 @@ easy_admin:
                     - 'user'
                     - { property: 'url', type: 'text' }
                     - 'projectCategories'
-                    - { property: 'images', type: 'collection', type_options: { entry_type: 'Fx\CoreBundle\Form\ProjectImageType', by_reference: false, allow_delete: false}, label: 'Screenshots du projet', embedded: true }
+                    - { property: 'images', type: 'collection', type_options: { entry_type: 'Fx\CoreBundle\Form\ProjectImageType', by_reference: false, allow_delete: true}, label: 'Screenshots du projet', embedded: true }
                     - 'realizedAt'
                     - { property: 'realizedAtDisplayString', type: 'text', label: 'Date réalisation (string) qui sera affichée sur front' }
                     - 'description'
