@@ -12,8 +12,11 @@
         <ul class="works">
 
             {% for project in projects %}
-                <li data-groups="[{%  for projectCategory in project.projectCategories %}&quot;{{ projectCategory.name | lower }}&quot;{% if not loop.last %},{% endif %}{% endfor %}]" class="works-item"><a href="#works-item-details-{{ loop.index }}" class="works-item-link"><img src="{{ vich_uploader_asset(project.getMainThumb, 'imageFile') | imagine_filter('project_thumb')  }}"/></a>
-                    <div id="works-item-details-{{ loop.index }}" class="popup mfp-hide fx-project">
+                <li data-groups="[{%  for projectCategory in project.projectCategories %}&quot;{{ projectCategory.name | lower }}&quot;{% if not loop.last %},{% endif %}{% endfor %}]" class="works-item">
+                    <a href="#{% if 'losgo' in project.name|lower %}fx-losgo-project{% else %}works-item-details-{{ loop.index }}{% endif %}" class="works-item-link">
+                        <img src="{{ vich_uploader_asset(project.getMainThumb, 'imageFile') | imagine_filter('project_thumb')  }}"/>
+                    </a>
+                    <div id="{% if 'losgo' in project.name|lower %}fx-losgo-project{% else %}works-item-details-{{ loop.index }}{% endif %}" class="popup mfp-hide fx-project">
                         <div class="slideshow">
                             {% for image in project.images %}
                                 <figure>
@@ -31,8 +34,8 @@
                         <p>{{ project.description }}</p>
                     </div>
                 </li>
-
             {% endfor %}
         </ul>
     </div>
+    <div class="separator"></div>
 </section>

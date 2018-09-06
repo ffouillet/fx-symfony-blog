@@ -18,6 +18,12 @@ class FxStringsTools {
         // Remove special chars.
         $stringToSlugifyWithoutSpecialChars = preg_replace('#[^\w]#','-',$stringToSlugifyWithoutAccents);
 
+        // Remove multiple hyphens
+        $stringToSlugifyWithoutSpecialChars = preg_replace('#-{2,}#','-',$stringToSlugifyWithoutSpecialChars);
+
+        // Trim beginning and ending hyphens
+        $stringToSlugifyWithoutSpecialChars = trim($stringToSlugifyWithoutSpecialChars,'-');
+
         return strtolower($stringToSlugifyWithoutSpecialChars);
     }
 }
