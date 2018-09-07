@@ -29,8 +29,10 @@
 /vendor/
 
 # Assets and user uploads
+/web/assets/
 /web/bundles/
 /web/uploads/
+/web/media/
 
 # PHPUnit
 /app/phpunit.xml
@@ -50,4 +52,3 @@
 
 # PhpStorm
 /.idea/*
-.idea/*

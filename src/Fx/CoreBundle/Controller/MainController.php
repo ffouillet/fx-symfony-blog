@@ -11,16 +11,21 @@ class MainController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $projects = $em->getRepository('FxPortfolioBundle:Project')
-            ->findAll([], ['frontendSortOrder' => 'ASC', 'realizedAt' => 'DESC' ]);
+            ->findBy([], ['frontendSortOrder' => 'asc', 'realizedAt' => 'DESC' ]);
+
+        $projectsCategories = $em->getRepository('FxPortfolioBundle:ProjectCategory')->findAll();
 
         $skills = $em->getRepository('FxPortfolioBundle:Skill')
-            ->findAll([], ['frontendSortOrder' => 'ASC', 'level' => 'DESC' ]);
+            ->findBy([], ['frontendSortOrder' => 'asc']);
 
         $tools = $em->getRepository('FxPortfolioBundle:Tool')
-            ->findAll([], ['frontendSortOrder' => 'ASC', 'level' => 'DESC' ]);
+            ->findBy([], ['frontendSortOrder' => 'ASC']);
 
         return $this->render('fx/index.html.twig',
-            array('projects' => $projects,
-                    'skills' => $skills));
+            array('skills' => $skills,
+                'tools'  => $tools,
+                'projects' => $projects,
+                'projectsCategories' => $projectsCategories
+                    ));
     }
 }

@@ -1,0 +1,54 @@
+<section id="contact" class="site-section contacts-section">
+    <header class="heading">
+        <h2>Contact</h2>
+    </header>
+    <div class="contacts">
+        <div class="contact-slideshow">
+            <div style="background-image: url({{asset('assets/template/images/chambery-elephants.jpg')}});" class="slide" alt="Fontaine des éléphants Chambéry"></div>
+            <div style="background-image: url({{asset('assets/template/images/cluse-de-chambery.jpg')}});" class="slide" alt="Cluse de Chambéry"></div>
+        </div>
+        <div class="contacts-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col span_6"><i class="fa fa-map-marker"></i>
+                        <address><span class="adr"><span class="locality">Chambéry, 73000</span><br><span class="country-name">France</span></span></address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact-form">
+    <div class="container" id="contact-form-container">
+        <div id="row-contact-form" class="row">
+            <div class="col span_6">
+                <h3>Me contacter</h3>
+                <div class="separator l"></div>
+                <form method="post" action="send.php" class="feedback-form">
+                    <div class="inp-b">
+                        <label for="name">Votre nom</label>
+                        <div class="inp-b-inner">
+                            <input type="text" id="name" name="name" class="required"/>
+                        </div>
+                    </div>
+                    <div class="inp-b">
+                        <label for="email">Votre adresse email</label>
+                        <div class="inp-b-inner">
+                            <input type="text" id="email" name="email" class="required"/>
+                        </div>
+                    </div>
+                    <div class="inp-b">
+                        <label for="message">Votre message</label>
+                        <div class="inp-b-inner">
+                            <textarea cols="30" rows="12" id="message" name="message" class="required"></textarea>
+                        </div>
+                    </div>
+                    <div class="inp-b">
+                        <input type="submit" value="Envoyer" class="btn-bordered"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -18,6 +18,6 @@ liip_imagine:
         cache: ~ 
 
         project_thumb:
-            quality : 75
+            quality : 90
             filters : 
-                thumbnail : { size: [120,90], mode: outbound }
+                thumbnail : { size: [280,158    ], mode: outbound }

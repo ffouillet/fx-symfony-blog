@@ -34,10 +34,9 @@ class Skill
     /**
      * @var int
      *
-     * @ORM\Column(name="level", type="integer")
+     * @ORM\Column(name="level", type="integer", nullable=true)
      */
     private $level;
-
     /**
      * @var int
      *

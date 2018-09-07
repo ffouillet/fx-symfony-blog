@@ -10,11 +10,23 @@ vich_uploader:
         projects_images:
             uri_prefix:         '%app.path.projects_images%'
             upload_destination: '%kernel.root_dir%/../web%app.path.projects_images%'
+            directory_namer:
+                service: fx.project_image_directory_namer
+            delete_on_update: true
+            delete_on_remove: true
 
         skills_images:
             uri_prefix:         '%app.path.skills_images%'
-            upload_destination: '%kernel.root_dir%/../web%app.path.skills_images%' 
+            upload_destination: '%kernel.root_dir%/../web%app.path.skills_images%'
+            namer:
+                service: vich_uploader.namer_origname
+            delete_on_update: true
+            delete_on_remove: true
 
         tools_images:
             uri_prefix:         '%app.path.tools_images%'
             upload_destination: '%kernel.root_dir%/../web%app.path.tools_images%'
+            namer:
+                service: vich_uploader.namer_origname
+            delete_on_update: true
+            delete_on_remove: true

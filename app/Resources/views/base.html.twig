@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <title>{% block title %}Félix Fouillet - Développeur Web Symfony & Wordpress{% endblock %}</title>
+        <meta name="description" content="Je m'apelle Félix Fouillet, je suis Développeur Web Symfony & Wordpress en Savoie, à Chambéry et aux alentours."/>
+        <meta name="keywords" content=""/>
+        <meta name="author" content="Félix Fouillet"/>
+
+        {%  include 'fx/page_elements/assets/css_js_in_head.html.twig' %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}" />
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        {%  include 'fx/page_elements/assets/js_before_body_end.html.twig' %}
     </body>
 </html>
