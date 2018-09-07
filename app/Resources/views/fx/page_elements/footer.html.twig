@@ -1,37 +1,8 @@
 <footer class="main-footer">
-    <div class="container">
+    <div class="container" id="footer-container">
         <div class="row">
-            <div class="col span_3">
-                <h3>Drop me a line</h3>
-                <div class="separator l"></div>
-                <form method="post" action="send.php" class="feedback-form">
-                    <div class="inp-b">
-                        <label for="name">Your name</label>
-                        <div class="inp-b-inner">
-                            <input type="text" id="name" name="name" class="required"/>
-                        </div>
-                    </div>
-                    <div class="inp-b">
-                        <label for="email">Your mail</label>
-                        <div class="inp-b-inner">
-                            <input type="text" id="email" name="email" class="required"/>
-                        </div>
-                    </div>
-                    <div class="inp-b">
-                        <label for="message">Your message</label>
-                        <div class="inp-b-inner">
-                            <textarea cols="30" rows="6" id="message" name="message" class="required"></textarea>
-                        </div>
-                    </div>
-                    <div class="inp-b">
-                        <input type="submit" value="Send" class="btn-bordered"/>
-                    </div>
-                </form>
-            </div>
-            <div class="col span_3">
-                <h3>Tweets</h3>
-                <div class="separator l"></div>
-                <div id="tweets" data-id="345502025829724160" class="tweets"></div>
+            <div class="col span_6">
+                <p>Félix Fouillet - Copyright © 2018 - {{ "now"|date("Y") }}</p>
             </div>
         </div>
     </div>
