@@ -2,6 +2,7 @@
 
 namespace Fx\BlogBundle\Repository;
 
+use Fx\BlogBundle\Entity\Post;
 /**
  * CommentRepository
  *
@@ -10,4 +11,16 @@ namespace Fx\BlogBundle\Repository;
  */
 class CommentRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getPostCommentsForDisplay(Post $post) {
+
+        $qb = $this->createQueryBuilder('c');
+
+        $qb->where('c.post = :post')
+            ->setParameter('post', $post)
+            ->andWhere('c.isValid = true')
+            ->orderBy('c.createdAt','DESC');
+
+        return $qb->getQuery()->getResult();
+
+    }
 }

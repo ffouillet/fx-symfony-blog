@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="wrapper vcard">
+
+        <!-- BEGIN NAV-->
+        {%  include 'fx/index_page_elements/menu.html.twig' %}
+        <!-- END NAV-->
+
+        <!-- BEGIN BLOG CONTENT -->
+        <div class="main-content">
+        <section id="blog" class="site-section blog-section">
+            <div class="container">
+                <header class="heading">
+                    <h2>Blog</h2>
+                </header>
+
+                <div class="row">
+                    <div class="col span_6">
+                        <h3>Les derniers articles</h3>
+                    </div>
+                </div>
+
+                <div class="row" id="row-blog-list">
+                    {% for post in posts %}
+                        <div class="blog-item">
+
+                            <p class="blog-post-title"><a  href="{{ path('fx_blog_post', {'slug': post.slug}) }}">{{ post.title }}</a></p>
+                            <p class="blog-post-date">Le {{ post.updatedAt | date('d/m/Y à H\\hm') }}</p>
+                            <p class="blog-post-heading">{{ post.heading }}</p>
+                            <span class="blog-post-nbr-comment">{{ post.comments.count }} {% if post.comments.count == 1 %}commentaire{% else %}commentaires{% endif %}</span>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        </div>
+        <!-- END BLOG CONTENT -->
+
+        <!-- BEGIN FOOTER-->
+        {%  include 'fx/index_page_elements/footer.html.twig' %}
+
+        <!-- END FOOTER-->
+    </div>
+{% endblock %}
+
+{%  block javascripts %}
+    <script src="{{ asset('assets/template/js/blog.js') }}"></script>
+{% endblock %}

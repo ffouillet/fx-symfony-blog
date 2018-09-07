@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="wrapper vcard">
+
+        <!-- BEGIN NAV-->
+        {%  include 'fx/index_page_elements/menu.html.twig' %}
+        <!-- END NAV-->
+
+        <!-- BEGIN BLOG CONTENT -->
+            <div class="main-content">
+                <section id="blog" class="site-section blog-post-section">
+                    <div class="container">
+                        <header class="heading post-title">
+                            <h2>{{ post.title }}</h2>
+                        </header>
+
+                        <div class="row">
+                            <p class="col span_6" id="post-author-and-lastUpdatedAt">
+                                Par <span class="post-author">{{ post.user }}</span>, dernière mise à jour le
+                                <span class="post-lastUpdatedAt"> {{ post.updatedAt |date('d/m/Y à H\\hm') }}</span>
+                            </p>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="post-heading col span_6">
+                                <p>{{ post.heading }}</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="post-content col span_6">
+                                {{ post.content | raw }}
+                            </div>
+                        </div>
+
+                        <!-- BEGIN COMMENTS SECTION -->
+                        <section id="comments-section">
+                            <div class="row">
+                                <div class="col span_6 comment-list">
+                                    <h3>Commentaires</h3>
+                                    <div class="separator l"></div>
+                                    <ul>
+                                        {% if postComments is empty  %}
+                                            <li>Aucun commentaires pour le moment, soyez le premier !</li>
+                                        {% else %}
+                                            {% for comment in postComments %}
+                                                <li class="comment">
+                                                    <p class="comment-userName-createdAt">
+                                                <span class="comment-userName">
+                                                    {{ comment.userName }}
+                                                </span>le
+                                                        <span class="comment-createdAt">
+                                                    {{ comment.createdAt | date('d/m/Y à H\\hm') }}
+                                                </span></p>
+                                                    <p class="comment-content">{{ comment.content }}</p>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col span_3">
+                                    <h3>Ajouter un commentaire</h3>
+                                    <div class="separator l"></div>
+                                    <div id="form-comment">
+                                        {{ form_start(commentForm) }}
+                                        {{ form_widget(commentForm) }}
+                                        {{ form_end(commentForm) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- END SECTION -->
+                    </div>
+                </section>
+            </div>
+
+        <!-- END BLOG CONTENT -->
+
+        <!-- BEGIN FOOTER-->
+        {%  include 'fx/index_page_elements/footer.html.twig' %}
+
+        <!-- END FOOTER-->
+    </div>
+{% endblock %}
+
+{%  block javascripts %}
+    <script src="{{ asset('assets/template/js/blog.js') }}"></script>
+{% endblock %}

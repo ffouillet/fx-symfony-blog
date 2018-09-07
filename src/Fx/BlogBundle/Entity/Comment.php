@@ -24,6 +24,13 @@ class Comment
     /**
      * @var string
      *
+     * @ORM\Column(name="userName", type="string", length=40)
+     */
+    private $userName;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="content", type="text")
      */
     private $content;
@@ -43,7 +50,7 @@ class Comment
     private $createdAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Fx\BlogBundle\Entity\Post")
+     * @ORM\ManyToOne(targetEntity="Fx\BlogBundle\Entity\Post", inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $post;
@@ -156,5 +163,29 @@ class Comment
     public function getPost()
     {
         return $this->post;
+    }
+
+    /**
+     * Set userName
+     *
+     * @param string $userName
+     *
+     * @return Comment
+     */
+    public function setUserName($userName)
+    {
+        $this->userName = $userName;
+
+        return $this;
+    }
+
+    /**
+     * Get userName
+     *
+     * @return string
+     */
+    public function getUserName()
+    {
+        return $this->userName;
     }
 }

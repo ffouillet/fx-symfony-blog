@@ -8,13 +8,14 @@
         <meta name="keywords" content=""/>
         <meta name="author" content="Félix Fouillet"/>
 
-        {%  include 'fx/page_elements/assets/css_js_in_head.html.twig' %}
+        {%  include 'fx/index_page_elements/assets/css_js_in_head.html.twig' %}
 
         <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}" />
     </head>
     <body>
         {% block body %}{% endblock %}
 
-        {%  include 'fx/page_elements/assets/js_before_body_end.html.twig' %}
+        {%  include 'fx/index_page_elements/assets/js_before_body_end.html.twig' %}
+        {% block javascripts %}{% endblock %}
     </body>
 </html>

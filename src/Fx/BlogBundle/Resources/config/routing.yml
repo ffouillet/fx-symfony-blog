@@ -1,3 +1,9 @@
 fx_blog_homepage:
     path:     /blog
     defaults: { _controller: FxBlogBundle:Default:index }
+
+fx_blog_post:
+    path:    /blog/post/{slug}
+    defaults: { _controller: FxBlogBundle:Default:viewPost }
+    requirements:
+        slug: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
