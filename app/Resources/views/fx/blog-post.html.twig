@@ -11,9 +11,21 @@
             <div class="main-content">
                 <section id="blog" class="site-section blog-post-section">
                     <div class="container">
+
                         <header class="heading post-title">
                             <h2>{{ post.title }}</h2>
                         </header>
+
+                        <!-- FLASH MESSAGES -->
+                        <div>
+                            {% for message in app.session.flashbag.get('commentAddedSuccessfully') %}
+                                <p class="fx-flash-success">{{ message }}</p>
+                            {% endfor %}
+                            {% for message in app.session.flashbag.get('commentNotAdded') %}
+                                <p class="fx-flash-error">{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                        <!-- END FLASH MESSAGES -->
 
                         <div class="row">
                             <p class="col span_6" id="post-author-and-lastUpdatedAt">
@@ -64,11 +76,25 @@
                             </div>
                             <div class="row">
                                 <div class="col span_3">
+
                                     <h3>Ajouter un commentaire</h3>
                                     <div class="separator l"></div>
                                     <div id="form-comment">
                                         {{ form_start(commentForm) }}
-                                        {{ form_widget(commentForm) }}
+
+                                        <div class="">
+                                            {{ form_label(commentForm.userName) }}
+                                            <div class="fx-form-error">{{ form_errors(commentForm.userName) }}</div>
+                                            {{ form_widget(commentForm.userName) }}
+                                        </div>
+
+                                        <div class="">
+                                            {{ form_label(commentForm.content) }}
+                                            <div class="fx-form-error">{{ form_errors(commentForm.content) }}</div>
+                                            {{ form_widget(commentForm.content) }}
+                                        </div>
+
+
                                         {{ form_end(commentForm) }}
                                     </div>
                                 </div>

@@ -3,6 +3,7 @@
 namespace Fx\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Comment
@@ -25,6 +26,13 @@ class Comment
      * @var string
      *
      * @ORM\Column(name="userName", type="string", length=40)
+     * @Assert\NotBlank(message="Votre nom ne peut être vide.")
+     * @Assert\Length(
+     *     min = 3,
+     *     max = 40,
+     *     minMessage = "Votre nom doit contenir au moins {{ limit }} caractères",
+     *     maxMessage = "Votre nom doit contenir au maximum {{ limit }} caractères"
+     * )
      */
     private $userName;
 
@@ -32,6 +40,13 @@ class Comment
      * @var string
      *
      * @ORM\Column(name="content", type="text")
+     * @Assert\NotBlank(message="Votre commentaire ne peut être vide.")
+     * @Assert\Length(
+     *     min = 5,
+     *     max = 2000,
+     *     minMessage = "Votre commentaire doit contenir au moins {{ limit }} caractères",
+     *     maxMessage = "Votre commentaire ne doit pas excéder {{ limit }} caractères"
+     * )
      */
     private $content;
 

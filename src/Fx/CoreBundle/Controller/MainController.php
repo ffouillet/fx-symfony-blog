@@ -11,7 +11,9 @@ class MainController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $projects = $em->getRepository('FxPortfolioBundle:Project')
-            ->findBy([], ['frontendSortOrder' => 'asc', 'realizedAt' => 'DESC' ]);
+            ->findAllProjectsWithRelations(array('images','projectCategories'));
+
+        dump($projects);
 
         $projectsCategories = $em->getRepository('FxPortfolioBundle:ProjectCategory')->findAll();
 
