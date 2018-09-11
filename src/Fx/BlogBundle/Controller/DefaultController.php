@@ -13,6 +13,10 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
+        if (!$this->getParameter('fx_blog_enabled')) {
+            throw $this->createNotFoundException('La page que vous demandez n\'existe pas :-(');
+        }
+
         $em = $this->getDoctrine()->getManager();
 
         //TODO : Ajouter une pagination.
@@ -24,6 +28,10 @@ class DefaultController extends Controller
     }
 
     public function viewPostAction(Post $post, Request $request){
+
+        if (!$this->getParameter('fx_blog_enabled')) {
+            throw $this->createNotFoundException('La page que vous demandez n\'existe pas :-(');
+        }
 
         $em = $this->getDoctrine()->getManager();
         $session = $request->getSession();

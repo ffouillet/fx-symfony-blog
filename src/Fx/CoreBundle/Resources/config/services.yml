@@ -6,6 +6,13 @@ services:
         class: Fx\CoreBundle\Service\FxStringsTools
         arguments: ~
 
+    fx.email_sender:
+        class: Fx\CoreBundle\Service\FxEmailSender
+        arguments:
+            $mailer: '@swiftmailer.mailer.default'
+            $mail_to: '%mail_to%'
+            $twig: '@twig'
+
     fx.project_image_directory_namer:
         class: Fx\CoreBundle\Service\ProjectImageDirectoryNamer
         arguments: ~

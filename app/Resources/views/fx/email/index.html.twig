@@ -1,5 +1,17 @@
-<h1>Nouveau mail depuis ffouillet.fr</h1>
-<p>Mail de : {{ mail.senderMailAdresse }}</p>
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Nouveau mail depuis ffouillet.fr</h1>
+        <ul>
+            <li>Email de : {{ mailSenderName }}</li>
+            <li>Adresse email : {{ mailSenderEmailAddress }}</li>
+        </ul>
 
-<p>Message :</p>
-<p>{{ mail.body }}</p>
+        <p>
+            Message :<br/>
+            {{ mailBody }}
+        </p>
+    </body>
+</html>
