@@ -8,11 +8,15 @@ use Fx\BlogBundle\Form\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
+
 class DefaultController extends Controller
 {
 
     public function indexAction()
     {
+
         if (!$this->getParameter('fx_blog_enabled')) {
             throw $this->createNotFoundException('La page que vous demandez n\'existe pas :-(');
         }
@@ -82,8 +86,6 @@ class DefaultController extends Controller
                 $commentAddedSuccessfully = -1;
             }
         }
-
-        dump($commentAddedSuccessfully);
 
         return $commentAddedSuccessfully;
 

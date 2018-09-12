@@ -16,3 +16,8 @@ services:
     fx.project_image_directory_namer:
         class: Fx\CoreBundle\Service\ProjectImageDirectoryNamer
         arguments: ~
+
+    #fx.encoded_password_generator:
+    #    class: Fx\CoreBundle\Service\FxEncodedPasswordGenerator
+    #    arguments:
+    #        $encoder: '@security.user_password_encoder.generic'

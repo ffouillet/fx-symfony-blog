@@ -8,7 +8,7 @@ fx_core:
 easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/AdminController.php"
     type:     annotation
-    prefix:   /admin
+    prefix:   /fxadmin
 
 fx_portfolio:
     resource: "@FxPortfolioBundle/Resources/config/routing.yml"

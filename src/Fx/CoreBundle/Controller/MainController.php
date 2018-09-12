@@ -10,6 +10,7 @@ class MainController extends Controller
 {
     public function indexAction(Request $request)
     {
+
         $em = $this->getDoctrine()->getManager();
 
         $projects = $em->getRepository('FxPortfolioBundle:Project')
