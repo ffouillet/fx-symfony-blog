@@ -72,7 +72,12 @@ class Post
     private $user;
 
     /**
-     * @ORM\OneToOne(targetEntity="Fx\BlogBundle\Entity\PostCategory")
+     * @ORM\OneToMany(targetEntity="Fx\BlogBundle\Entity\Comment", mappedBy="post")
+     */
+    private $comments;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Fx\BlogBundle\Entity\PostCategory")
      * @ORM\JoinColumn(nullable=true)
      */
     private $postCategory;
@@ -272,5 +277,77 @@ class Post
     public function __toString()
     {
         return $this->title;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Post
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Add postCategory
+     *
+     * @param \Fx\BlogBundle\Entity\PostCategory $postCategory
+     *
+     * @return Post
+     */
+    public function addPostCategory(\Fx\BlogBundle\Entity\PostCategory $postCategory)
+    {
+        $this->postCategory[] = $postCategory;
+
+        return $this;
+    }
+
+    /**
+     * Remove postCategory
+     *
+     * @param \Fx\BlogBundle\Entity\PostCategory $postCategory
+     */
+    public function removePostCategory(\Fx\BlogBundle\Entity\PostCategory $postCategory)
+    {
+        $this->postCategory->removeElement($postCategory);
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \Fx\BlogBundle\Entity\Post $comment
+     *
+     * @return Post
+     */
+    public function addComment(\Fx\BlogBundle\Entity\Post $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \Fx\BlogBundle\Entity\Post $comment
+     */
+    public function removeComment(\Fx\BlogBundle\Entity\Post $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

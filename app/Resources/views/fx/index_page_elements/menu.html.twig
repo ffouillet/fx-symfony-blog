@@ -1,0 +1,15 @@
+<nav class="main-nav">
+    <div class="container">
+        <ul>
+            <li><a href="{{ path('fx_homepage') }}#about">Accueil</a></li>
+            <li><a href="{{ path('fx_homepage') }}#services">Competences</a></li>
+            <li><a href="{{ path('fx_homepage') }}#portfolio">Portfolio</a></li>
+            <li><a href="{{ path('fx_homepage') }}#parcours">Parcours</a></li>
+            <li><a href="{{ path('fx_homepage') }}#contact">Contact</a></li>
+            {% if fx_blog_enabled is same as(true) %}
+                <li id="blog-tab"><a href="{{ path('fx_blog_homepage') }}">Blog</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="main-nav-trigger"></div>
+</nav>

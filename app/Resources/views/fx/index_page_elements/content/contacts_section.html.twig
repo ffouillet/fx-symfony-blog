@@ -25,23 +25,23 @@
             <div class="col span_6">
                 <h3>Me contacter</h3>
                 <div class="separator l"></div>
-                <form method="post" action="send.php" class="feedback-form">
+                <form method="post" action="{{ path('fx_ajax_handle_contact_form') }}" class="feedback-form">
                     <div class="inp-b">
                         <label for="name">Votre nom</label>
                         <div class="inp-b-inner">
-                            <input type="text" id="name" name="name" class="required"/>
+                            <input type="text" id="name" name="mailSenderName" class="required"/>
                         </div>
                     </div>
                     <div class="inp-b">
                         <label for="email">Votre adresse email</label>
                         <div class="inp-b-inner">
-                            <input type="text" id="email" name="email" class="required"/>
+                            <input type="text" id="email" name="mailSenderEmailAddress" class="required"/>
                         </div>
                     </div>
                     <div class="inp-b">
                         <label for="message">Votre message</label>
                         <div class="inp-b-inner">
-                            <textarea cols="30" rows="12" id="message" name="message" class="required"></textarea>
+                            <textarea cols="30" rows="12" id="message" name="mailBody" class="required"></textarea>
                         </div>
                     </div>
                     <div class="inp-b">

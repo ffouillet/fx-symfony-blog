@@ -10,4 +10,23 @@ namespace Fx\PortfolioBundle\Repository;
  */
 class ProjectRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllProjectsWithRelations($relations) {
+
+        if (empty($relations)) {
+            throw new \InvalidArgumentException('Le tableau devant contenir les relations à récuperer est vide.');
+        }
+
+        $qb = $this->createQueryBuilder('p');
+
+        foreach($relations as $relation) {
+            $joinedEntityShortName = substr($relation,0,3);
+            $qb->join('p.'.$relation, $joinedEntityShortName);
+            $qb->addSelect($joinedEntityShortName);
+        }
+
+        $qb->orderBy('p.frontendSortOrder','asc');
+        $qb->addOrderBy('p.realizedAt', 'DESC');
+
+        return $qb->getQuery()->getResult();
+    }
 }
