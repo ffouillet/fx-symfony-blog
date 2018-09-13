@@ -2,8 +2,8 @@
     <div class="intro">
         <div class="intro-slideshow">
             <div style="background-image: url({{asset('assets/template/images/developpeur-web-conception-site.jpg')}});" class="slide"></div>
-            <div style="background-image: url({{asset('assets/template/images/ordinateur-code-css.jpg')}});" class="slide lazy"></div>
-            <div style="background-image: url({{asset('assets/template/images/creation-sites-internet.jpg')}});" class="slide lazy"></div>
+            <div class="lazy slide" data-src="{{asset('assets/template/images/ordinateur-code-css.jpg')}}"></div>
+            <div class="lazy slide" data-src="{{asset('assets/template/images/creation-sites-internet.jpg')}}"></div>
         </div>
         <div id="banniere-statut">
             Ouvert au recrutement
@@ -27,7 +27,7 @@
     <div class="container">
         <div class="about row-t">
             <div class="col">
-                <div class="lazyload site-photo"><img src="{{  asset('assets/template/images/felix-fouillet.jpg') }}" width="250" height="250" alt="Photo" class="photo"/></div>
+                <div class="lazy site-photo"><img src="{{  asset('assets/template/images/felix-fouillet.jpg') }}" width="250" height="250" alt="Photo" class="photo"/></div>
             </div>
             <div class="col">
                 <h3>Bonjour ! </h3>
