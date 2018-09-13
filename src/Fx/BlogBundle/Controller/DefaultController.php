@@ -23,8 +23,6 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        //TODO : Ajouter une pagination.
-
         $posts = $em->getRepository('FxBlogBundle:Post')->findBy([],['createdAt' => 'DESC']);
 
         return $this->render('fx/blog.html.twig',

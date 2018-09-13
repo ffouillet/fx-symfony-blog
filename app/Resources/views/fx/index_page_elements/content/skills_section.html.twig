@@ -9,7 +9,7 @@
                     {%  for skill in skills %}
                         <div class="fx-skill">
                             <div class="fx-skill-name">{{ skill.name }}</div>
-                            <div class="fx-skill-logo"><img src="{{ vich_uploader_asset(skill, 'imageFile') }}"/></div>
+                            <div class="fx-skill-logo"><img class="lazy" data-src="{{ vich_uploader_asset(skill, 'imageFile') }}"/></div>
                         </div>
                     {% endfor %}
                 </div>
@@ -18,7 +18,7 @@
             <div class="col span_3">
                 <ul class="tools fx-tools">
                     {% for tool in tools %}
-                        <li><img src="{{ vich_uploader_asset(tool, 'imageFile') }}"/>{{ tool.name }}</li>
+                        <li><img class="lazy" data-src="{{ vich_uploader_asset(tool, 'imageFile') }}"/>{{ tool.name }}</li>
                     {% endfor %}
                 </ul>
             </div>
