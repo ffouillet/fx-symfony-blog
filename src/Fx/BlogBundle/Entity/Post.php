@@ -67,7 +67,6 @@ class Post
     /**
      * @ORM\ManyToOne(targetEntity="Fx\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
-     * TODO : Dependency with Fx\UserBundle\Entity\User... 
      */
     private $user;
 
