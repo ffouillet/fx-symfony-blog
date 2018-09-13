@@ -20,7 +20,7 @@
                         <div class="slideshow">
                             {% for image in project.images %}
                                 <figure>
-                                    <img class="fx-project-screenshot {% if loop.length == 1 %}fx-project-single-screenshot{% endif %}" src="{{ vich_uploader_asset(image, 'imageFile') }}" width="750" height="500"/>
+                                    <img class="lazy fx-project-screenshot {% if loop.length == 1 %}fx-project-single-screenshot{% endif %}" data-src="{{ vich_uploader_asset(image, 'imageFile') }}" width="750" height="500"/>
                                 </figure>
                             {% endfor %}
                         </div>
@@ -28,7 +28,7 @@
                         <div class="fx-project-date-and-url">
                             <div class="date">{{ project.realizedAtDisplayString }}</div>
                             {% if project.url is not null %}
-                                <div class="center"><a href="{{ project.url }}" class="btn-bordered">Voir le projet</a></div>
+                                <div class="center"><a href="{{ project.url }}" class="btn-bordered" target="_blank">Voir le projet</a></div>
                             {%  endif %}
                         </div>
                         <p>{{ project.description }}</p>
