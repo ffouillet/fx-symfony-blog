@@ -2,7 +2,8 @@
     <div class="container" id="footer-container">
         <div class="row">
             <div class="col span_6">
-                <p>Félix Fouillet - Copyright © 2018 - {{ "now"|date("Y") }}</p>
+                <p>Félix Fouillet - Copyright © 2018 {% if "now"|date("Y") > 2018 %}- {{ "now"|date("Y") }}{% endif %}
+                </p>
             </div>
         </div>
     </div>
